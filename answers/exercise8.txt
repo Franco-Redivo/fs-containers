@@ -1,0 +1,30 @@
+docker exec -it todo-backend-mongo-1 bash
+root@30e869e385e4:/# mongosh
+Current Mongosh Log ID:	69fe42f906e1b3a40d3d88b2
+Connecting to:		mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.8.2
+Using MongoDB:		undefined
+Using Mongosh:		2.8.2
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+test> use admin
+switched to db admin
+admin> db.auth("root", "example")
+{ ok: 1 }
+admin> show dbs
+admin         100.00 KiB
+config         36.00 KiB
+local          72.00 KiB
+the_database   68.00 KiB
+admin> use the_database
+switched to db the_database
+the_database> show collections
+todos
+the_database> db.todos.insertOne({
+| text: "Inccrease the number of tools in my tool belt",
+| done: false
+| })
+{
+  acknowledged: true,
+  insertedId: ObjectId('69fe45799286f17d723d88b3')
+}
