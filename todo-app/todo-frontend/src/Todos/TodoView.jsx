@@ -9,11 +9,16 @@ const TodoView = () => {
 
   const refreshTodos = async () => {
     const { data } = await axios.get('/todos')
-    setTodos(data)
+    setTodos(Array.isArray(data) ? data : [])
   }
 
   useEffect(() => {
-    refreshTodos()
+    const loadTodos = async () => {
+      const { data } = await axios.get('/todos')
+      setTodos(Array.isArray(data) ? data : [])
+    }
+
+    loadTodos()
   }, [])
 
   const createTodo = async (todo) => {
