@@ -1,3 +1,13 @@
+FROM node:24 AS test
+
+WORKDIR /usr/src/app
+
+COPY . .
+
+RUN npm ci
+
+RUN npm test -- --run src/tests/todo.test.jsx
+
 FROM node:24 AS build-stage
 
 WORKDIR /usr/src/app
