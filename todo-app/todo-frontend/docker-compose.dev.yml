@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: dev.Dockerfile
     environment:
-      VITE_BACKEND_URL: http://localhost:3000
+      VITE_BACKEND_URL: /api
     volumes:
       - .:/usr/src/app
     ports:
