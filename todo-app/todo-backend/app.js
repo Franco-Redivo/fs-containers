@@ -13,6 +13,7 @@ app.use(logger('dev'));
 app.use(express.json());
 
 app.use('/', indexRouter);
+app.use('/api/todos', todosRouter);
 app.use('/todos', todosRouter);
 
 module.exports = app;
